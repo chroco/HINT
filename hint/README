@@ -1,0 +1,64 @@
+HINT, distribution for Craig Files and Claude Sammut
+
+Directories:
+
+src           includes sources for hint, to compile on Sun, use
+              make, to compile on other machines (SGI, HP) edit makefile
+              and change MACHINE variable
+
+              makefile (if successful) produces the executable hint
+
+gen           a perl script that produces some very simple hint scripts
+              with example functions. Try, for example
+
+              gen -fb0 > funct.s
+              src/hint -c funct.s
+
+              For description of which functions it can produce, type
+
+              gen
+
+doc           some documentation
+doc/doc.ps    a very old and almost useless documentation on hint (in
+              those times it was called sds). A much better
+              documentation on principles how HINT works is available on
+              
+              http://www-ai.ijs.si/BlazZupan/papers.html
+
+              In particular, see ICML-97 paper, IEEE Expert
+	      forthcoming paper, and Zupan's Thesis (this one
+	      especially for noise handling)
+
+examples      some more complex examples, try
+
+              ../src/hint -c car.s               (car with no noise)
+              ../src/hint -c nursery.s           (nursery with no noise)
+              ../src/hint -c car_noise.s         (car with 30% noise)
+
+              To change the number of examples used for learning,
+              change the percentage in
+
+              split 30% of tmp to y and tmp1
+
+              to some other value (file act.s for car and nursery,
+              file car_noise_act.s for noisy car which uses
+              50%). Noise in car is added artificially (see
+              car_noise_act.s), currently, 30% of noise is added to
+              learning examples. If HINT runs properly on the later
+              case, it should output
+
+              of 865 different 36 (  4.16%) def 0(right 0)
+
+	      which basically means that of remaining 50% examples in
+	      test set only 4.16% are misclassified.
+
+              For more info on car and nursery datasets, see
+
+              http://www-ai.ijs.si/BlazZupan/car.html
+              http://www-ai.ijs.si/BlazZupan/nursery.html
+
+
+Blaz Zupan
+blaz.zupan@ijs.si
+
+October 30, 1997
