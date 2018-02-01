@@ -70,7 +70,8 @@ endif
 # libraries, objects
 
 ifeq ($(HINTSIZE),small)
-  LIBS = -ll -ly -lm
+#  LIBS = -ll -ly -lm
+  LIBS = -ll -lm
 else
   LIBS = -ll -ly libpga.a -lm
 endif
